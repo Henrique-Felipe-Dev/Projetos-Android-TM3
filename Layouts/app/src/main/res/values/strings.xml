@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Layouts</string>
+    <string name="bem_vindo">Bem vindo ao aplicativo!</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_in">Sign In</string>
+</resources>
