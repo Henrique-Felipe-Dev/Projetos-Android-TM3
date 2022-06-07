@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,12 +16,23 @@ class MainActivity : AppCompatActivity() {
         //findViewById(id)
 
         val buttonD6 = findViewById<Button>(R.id.buttonD6)
+        val buttonD12 = findViewById<Button>(R.id.buttonD12)
+        val buttonD20 = findViewById<Button>(R.id.buttonD20)
 
         buttonD6.setOnClickListener {
             //Mensagem flutuante - Toast
             //Toast.makeText(this, "Clicou!", Toast.LENGTH_LONG).show()
             rolarDados(6)
         }
+
+        buttonD12.setOnClickListener {
+            rolarDados(12)
+        }
+
+        buttonD20.setOnClickListener {
+            rolarDados(20)
+        }
+
 
     }
 
@@ -31,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         textDado.text = rolagem.toString()
 
+        /*
         val image = findViewById<ImageView>(R.id.imageLados)
 
         when(rolagem){
@@ -41,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             5 -> image.setImageResource(R.drawable.dice_5)
             6 -> image.setImageResource(R.drawable.dice_6)
         }
+         */
 
     }
 

@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Dice App</string>
     <string name="d6">D6</string>
+    <string name="d12">D12</string>
+    <string name="d20">D20</string>
 </resources>
