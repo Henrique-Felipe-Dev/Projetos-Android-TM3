@@ -5,4 +5,9 @@ data class Categoria (
     val descricao: String?,
     val tarefas: List<Tarefa>?
         ) {
+
+    override fun toString(): String {
+        return descricao!!
+    }
+
 }
