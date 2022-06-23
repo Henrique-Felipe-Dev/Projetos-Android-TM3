@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,6 +17,7 @@ import com.generation.todolist.model.Tarefa
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,8 @@ class ListFragment : Fragment() {
         binding = FragmentListBinding
             .inflate(layoutInflater, container, false)
 
+        mainViewModel.listTarefa()
+
         val tarefaAdapter = TarefaAdapter()
 
         binding.recyclerTarefa.adapter = tarefaAdapter
@@ -33,6 +37,12 @@ class ListFragment : Fragment() {
 
         binding.floatingAdd.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
+        }
+
+        mainViewModel.myTarefaResponse.observe(viewLifecycleOwner) { response ->
+            if (response.body() != null) {
+                tarefaAdapter.setList(response.body()!!)
+            }
         }
 
         return binding.root
